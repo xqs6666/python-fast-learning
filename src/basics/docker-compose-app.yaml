@@ -1,0 +1,18 @@
+version: "1.0"
+
+services:
+  web: 
+    image: nginx:latest
+    container_name: nginx 
+    ports: 
+      - "80:80"
+    volumes: 
+      - /dockerData/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /dackerData/nginx/html:/usr/share/nginx/html
+    restart: always
+    network: app_network
+
+  reids:
+    images: reids:
+networks:
+  app_network
